@@ -61,6 +61,12 @@ public class GravityBeam : MonoBehaviour
             gunPointLine.SetPosition(0, originPoint.position);
             gunPointLine.SetPosition(1, selectedObject.transform.position);
         }
+        if (selectedObject != null && Input.GetKeyDown(KeyCode.F))
+        {
+            selectedObject.isStatic = true;
+            CancelGravityBeam();
+            tempObj.GetComponent<Rigidbody2D>().isKinematic = true;
+        }
     }
     void CancelGravityBeam()
     {
@@ -73,7 +79,8 @@ public class GravityBeam : MonoBehaviour
             tempObj.GetComponent<SpriteRenderer>().color = Color.white;
             tempObj.GetComponent<SpriteRenderer>().color = Color.white;
             tempObj.GetComponent<Rigidbody2D>().gravityScale = 1;
+            tempObj.GetComponent<Rigidbody2D>().isKinematic = false;
         }
     }
-    
+  
 }
