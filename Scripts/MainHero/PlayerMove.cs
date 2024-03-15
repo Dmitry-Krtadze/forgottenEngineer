@@ -25,9 +25,6 @@ public class PlayerMove : MonoBehaviour
     {
         SimpleMove();
         SimpleJump();
-
-
-
     }
 
 
@@ -39,17 +36,12 @@ public class PlayerMove : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Space))
             {
-                //Vector2 pos = Vector2.Lerp(transform.position.x, transform.position.y, 2f);
-                //transform.position = new Vector2(rb.velocity.x, pos);
+
+                rb.AddForce(Vector2.up * forceJump);
                 Debug.Log("Abobik");
             }
         }
     }
-
-
-
-
-
 
 
     void SimpleMove()
